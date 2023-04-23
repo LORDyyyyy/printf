@@ -21,5 +21,6 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	printed_count = print_them(format, ap, go_to_function);
+	va_end(ap);
 	return (printed_count);
 }
