@@ -23,6 +23,7 @@ int print_number(int n)
 	while (div)
 	{
 		_writechar(nn / div + 48);
+		len++;
 		nn %= div;
 		div /= 10;
 	}
