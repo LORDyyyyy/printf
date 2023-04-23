@@ -47,3 +47,17 @@ int print_precen(va_list ap)
 	_writechar(37);
 	return (1);
 }
+
+/**
+ * print_int - prints an integer
+ * @ap: the pass ...
+ *
+ * Return: the number of the digits
+ */
+
+int print_int(va_list ap)
+{
+	int len = print_number(va_arg(ap, int));
+
+	return (len);
+}

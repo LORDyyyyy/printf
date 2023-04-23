@@ -22,5 +22,8 @@ int print_them(const char *format, va_list ap, formats_t goto_func[]);
 int print_char(va_list ap);
 int print_string(va_list ap);
 int print_precen(va_list ap);
+int print_number(int);
+int print_int(va_list ap);
+int print_uint(va_list ap);
 
 #endif
