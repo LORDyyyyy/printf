@@ -9,7 +9,7 @@
 int print_number(va_list ap)
 {
 	int div = 1, len = 0, n = va_arg(ap, int);
-	int nn;
+	unsigned int nn;
 
 	if (n < 0)
 	{
