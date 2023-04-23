@@ -29,7 +29,17 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 				}
 			}
 			if (!flag)
-				return (-1);
+			{
+				if (format[i + 1])
+				{
+					_writechar(format[i]);
+					_writechar(format[i + 1]);
+					printed_count += 2;
+				}
+				else
+					return (-1);
+			}
+
 			i++;
 		}
 		else
