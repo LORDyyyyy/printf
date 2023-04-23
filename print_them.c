@@ -23,8 +23,6 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 				if (format[i + 1] == go_to_function[j].scp[0])
 				{
 					len_function = go_to_function[j].f(ap);
-					if (len_function == -1)
-						return (-1);
 					printed_count += len_function;
 					break;
 				}
