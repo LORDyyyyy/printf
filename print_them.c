@@ -10,10 +10,11 @@
  */
 int print_them(const char *format, va_list ap, formats_t goto_func[])
 {
-	int i, j, printed_count = 0, len_function;
+	int i, j, printed_count = 0, len_function, flag;
 
 	for (i = 0; format[i]; i++)
 	{
+		flag = 0;
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '\0')
@@ -23,11 +24,14 @@ int print_them(const char *format, va_list ap, formats_t goto_func[])
 				if (format[i + 1] == goto_func[j].scp[0])
 				{
 					len_function = goto_func[j].f(ap);
+					if (len_function == -1)
+						return (-1);
+					flag = 1;
 					printed_count += len_function;
 					break;
 				}
 			}
-			if (!goto_func[j].scp && format[i + 1])
+			if (flag == 0 && format[i + 1])
 			{
 				_writechar(format[i]);
 				_writechar(format[i + 1]);
