@@ -16,6 +16,8 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			for (j = 0; go_to_function[j].scp; j++)
 			{
 				if (format[i + 1] == go_to_function[j].scp[0])
@@ -35,8 +37,6 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					_writechar(format[i + 1]);
 					printed_count += 2;
 				}
-				else
-					return (-1);
 			}
 
 			i++;
