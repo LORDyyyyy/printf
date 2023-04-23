@@ -27,7 +27,7 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					break;
 				}
 			}
-			if (!go_to_function[j].scp && format[i + 1] != ' ')
+			if (!go_to_function[j].scp)
 			{
 				if (format[i + 1])
 				{
@@ -35,8 +35,12 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					_writechar(format[i + 1]);
 					printed_count += 2;
 				}
+				else
+				{
+					_writechar(format[i]);
+					printed_count++;
+				}
 			}
-
 			i++;
 		}
 		else
