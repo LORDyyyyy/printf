@@ -2,13 +2,14 @@
 
 /**
  * print_number - just prints a number
- * @n: the number
+ * @ap: the passed ....
  *
  * Return: it's len
  */
-int print_number(int n)
+int print_number(va_list ap)
 {
-	int div = 1, len = 0, nn;
+	int div = 1, len = 0, n = va_arg(ap, int);
+	unsigned int nn;
 
 	if (n < 0)
 	{

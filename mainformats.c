@@ -57,7 +57,7 @@ int print_precen(va_list ap)
 
 int print_int(va_list ap)
 {
-	int len = print_number(va_arg(ap, int));
+	int len = print_number(ap);
 
 	return (len);
 }
