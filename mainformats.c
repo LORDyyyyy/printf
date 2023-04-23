@@ -43,6 +43,7 @@ int print_string(va_list ap)
  */
 int print_precen(va_list ap)
 {
-	_writechar(va_arg(ap, int));
+	(void)ap;
+	_writechar(37);
 	return (1);
 }
