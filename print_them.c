@@ -8,31 +8,35 @@
  *
  * Return: the length
  */
-int print_them(const char *format, va_list ap, formats_t go_to_function[])
+int print_them(const char *format, va_list ap, formats_t goto_func[])
 {
-	int i, j, printed_count = 0, len_function;
+	int i, j, printed_count = 0, len_func;
 
-	for (i = 0; format[i]; i++)
+	for (i = 0; format && format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '\0')
-				return (-1);
-			for (j = 0; go_to_function[j].scp; j++)
+			int flag = 0;
+
+			for (j = 0; goto_func[j].scp && format[i + 1]; j++)
 			{
-				if (format[i + 1] == go_to_function[j].scp[0])
+				if (goto_func[j].scp[0] == format[i + 1])
 				{
-					len_function = go_to_function[j].f(ap);
-					printed_count += len_function;
+					len_func = goto_func[j].f(ap);
+					if (len_func == -1)
+						return(-1);
+					printed_count += len_func;
+					i++;
+					flag = 1;
 					break;
 				}
 			}
-			if (!go_to_function[j].scp)
+			if (!flag)
 			{
 				if (format[i + 1])
-				{
-					_writechar(format[i]);
+				{	
 					_writechar(format[i + 1]);
+					_writechar(format[i]);
 					printed_count += 2;
 				}
 				else
@@ -41,13 +45,13 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					printed_count++;
 				}
 			}
-			i++;
 		}
 		else
 		{
 			_writechar(format[i]);
 			printed_count++;
 		}
+
 	}
 	return (printed_count);
 }

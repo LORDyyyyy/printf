@@ -17,7 +17,7 @@ typedef struct formats_struct
 } formats_t;
 
 int _printf(const char *format, ...);
-int print_them(const char *format, va_list ap, formats_t go_to_function[]);
+int print_them(const char *format, va_list ap, formats_t goto_func[]);
 int _writechar(char c);
 int print_char(va_list ap);
 int print_string(va_list ap);
