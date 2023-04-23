@@ -8,7 +8,7 @@
  */
 int print_number(int n)
 {
-	int i = 1, dig, len = 0, nn;
+	int div = 1, len = 0, nn;
 
 	if (n < 0)
 	{
@@ -16,21 +16,15 @@ int print_number(int n)
 		n *= -1;
 		len++;
 	}
-
 	nn = n;
-	while (nn > 0)
-	{
-		len++;
-		nn /= 10;
-		i *= 10;
-	}
-	i /= 10;
 
-	while (i > 0)
+	while (nn / div > 9)
+		div *= 10;
+	while (div)
 	{
-		dig = (n / i) % 10;
-		_writechar(dig + 48);
-		i /= 10;
+		_writechar(nn / div + 48);
+		nn %= div;
+		div /= 10;
 	}
 	return (len);
 }
