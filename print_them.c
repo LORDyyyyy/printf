@@ -10,7 +10,7 @@
  */
 int print_them(const char *format, va_list ap, formats_t go_to_function[])
 {
-	int i, j, printed_count = 0, len_function, flag = 0;
+	int i, j, printed_count = 0, len_function;
 
 	for (i = 0; format[i]; i++)
 	{
@@ -24,11 +24,10 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					if (len_function == -1)
 						return (-1);
 					printed_count += len_function;
-					flag = 1;
 					break;
 				}
 			}
-			if (!flag && format[i + 1] != ' ')
+			if (!go_to_function[j].scp && format[i + 1] != ' ')
 			{
 				if (format[i + 1])
 				{
