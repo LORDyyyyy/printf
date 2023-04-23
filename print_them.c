@@ -28,7 +28,7 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 					break;
 				}
 			}
-			if (!flag)
+			if (!flag && format[i + 1] != ' ')
 			{
 				if (format[i + 1])
 				{
