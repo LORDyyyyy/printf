@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	formats_t go_to_function[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"%", print_precen},
 		{NULL, NULL}
 	};
 

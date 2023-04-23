@@ -34,3 +34,15 @@ int print_string(va_list ap)
 	return (len);
 }
 
+
+/**
+ * print_precen - prints %
+ * @ap: the pass ....
+ *
+ * Return: 1
+ */
+int print_precen(va_list ap)
+{
+	_writechar(va_arg(ap, int));
+	return (1);
+}
