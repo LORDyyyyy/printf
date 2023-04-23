@@ -37,8 +37,7 @@ int print_them(const char *format, va_list ap, formats_t go_to_function[])
 				}
 				else
 				{
-					_writechar(format[i]);
-					printed_count++;
+					return (-1);
 				}
 			}
 			i++;

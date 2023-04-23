@@ -20,7 +20,7 @@ int print_number(int n)
 
 	while (nn / div > 9)
 		div *= 10;
-	while (div)
+	while (div != 0)
 	{
 		_writechar(nn / div + 48);
 		len++;
