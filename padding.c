@@ -16,25 +16,31 @@ int print_n_right_pad(char *s, params_t *params)
 		padding_char = '0';
 	negative_a = (!params->unsign && *s == '-');
 	negative_b = (!params->unsign && *s == '-');
-	if (negative_a && i < params->width && padding_char == '0' && !params->minus_flag)
+	if (negative_a && i < params->width && padding_char == '0' &&
+			!params->minus_flag)
 		s += 1;
 	else
 		negative_a = 0;
-	if ((params->plus_flag && !negative_b) || (!params->plus_flag && params->space_flag && !negative_b))
+	if ((params->plus_flag && !negative_b) || (!params->plus_flag &&
+				params->space_flag && !negative_b))
 		i++;
 	if (negative_a && padding_char == '0')
 		x += writechar('-');
-	if (params->plus_flag && !negative_b && padding_char == '0' && !params->unsign)
+	if (params->plus_flag && !negative_b && padding_char == '0' &&
+			!params->unsign)
 		x += writechar('+');
-	else if (!params->plus_flag && params->space_flag && !negative_b && !params->unsign && params->zero_flag)
+	else if (!params->plus_flag && params->space_flag && !negative_b &&
+			!params->unsign && params->zero_flag)
 		x += writechar(' ');
 	while (i++ < params->width)
 		x += writechar(padding_char);
 	if (negative_a && padding_char == ' ')
 		x += writechar('-');
-	if (params->plus_flag && !negative_b && padding_char == ' ' && !params->unsign)
+	if (params->plus_flag && !negative_b && padding_char == ' ' &&
+			!params->unsign)
 		x += writechar('+');
-	else if (!params->plus_flag && params->space_flag && !negative_b && !params->unsign && !params->zero_flag)
+	else if (!params->plus_flag && params->space_flag && !negative_b &&
+			!params->unsign && !params->zero_flag)
 		x += writechar(' ');
 	x += writestr(s);
 	return (x);
@@ -57,7 +63,8 @@ int print_n_left_pad(char *s, params_t *params)
 	if (params->zero_flag && !params->minus_flag)
 		padding_char = '0';
 	negative_a = negative_b = (!params->unsign && *s == '-');
-	if (negative_a && i < params->width && padding_char == '0' && !params->minus_flag)
+	if (negative_a && i < params->width && padding_char == '0' &&
+			!params->minus_flag)
 		s++;
 	else
 		negative_a = 0;

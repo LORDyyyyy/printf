@@ -1,11 +1,12 @@
 #include "main.h"
 
-/* get_width - the width
- * @parms: parameter
- * @ap: pointer
+/**
+ * get_width - get the width from string
+ * @params: parameter
+ * @ap: passed parameter
  * @s: string
  *
- * Retern: pointer
+ * Return: the pointer for get_width
  *
  */
 char *get_width(char *s, params_t *params, va_list ap)
@@ -15,13 +16,13 @@ char *get_width(char *s, params_t *params, va_list ap)
 	if (*s == '*')
 	{
 		x = va_arg(ap, int);
-		s+=1;
+		s += 1;
 	}
 	else
 	{
 		while (_isdigit(*s))
-				x = x * 10 + (*s++ - '0');
+			x = x * 10 + (*s++ - '0');
 	}
 	params->width = x;
-	return(s);
+	return (s);
 }

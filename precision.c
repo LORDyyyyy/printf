@@ -3,8 +3,8 @@
 /**
  * get_precision - get precision
  * @params: paramete
- * @ap: pointers
- * @p: string
+ * @ap: passed pointers
+ * @ptr: pointer
  *
  * Return: mew pointer
  */
@@ -22,7 +22,7 @@ char *get_precision(char *ptr, params_t *params, va_list ap)
 	}
 	else
 	{
-		while(_isdigit(*ptr))
+		while (_isdigit(*ptr))
 			x = x * 10 + (*ptr++ - '0');
 	}
 	params->precision = x;
