@@ -1,32 +1,79 @@
 #include "main.h"
 
 /**
- * print_number - just prints a number
- * @ap: the passed ....
+ * convert - a function to convert the base, and convert it to a string
+ * @num: number to convert , in base 10.
+ * @base: what base to convert
+ * @flags: if (10)2 then unsigned and CAPTIAL when hex
+ * else if (11)2 then unsigned and lower when hex
  *
- * Return: it's len
+ * Return: the number in a string
  */
-int print_number(va_list ap)
+char *convert(long int num, int base, int flags)
 {
-	int div = 1, len = 0, n = va_arg(ap, int);
-	unsigned int nn;
+	static char *array;
+	static char buffer[50];
+	char sign = 0;
+	char *p;
+	unsigned long n = num;
 
-	if (n < 0)
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		_writechar('-');
-		n *= -1;
-		len++;
+		n = -num;
+		sign = '-';
 	}
-	nn = n;
+	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	p = &buffer[49];
+	*p = '\0';
 
-	while (nn / div > 9)
-		div *= 10;
-	while (div != 0)
+	do {
+		*--p = array[n % base];
+		n /= base;
+	} while (n != 0);
+
+	if (sign)
+		*--p = sign;
+	return (p);
+}
+
+/**
+ * print_number - prints a number as string
+ * @str: the string
+ * @params: the parameters struct
+ *
+ * Return: printed output length
+ */
+int print_number(char *str, params_t *params)
+{
+	unsigned int i = _strlen(str);
+	int neg = (!params->unsign && *str == '-');
+
+	if (!params->precision && *str == '0' && !str[1])
+		str = "";
+	if (neg)
 	{
-		_writechar(nn / div + 48);
-		len++;
-		nn %= div;
-		div /= 10;
+		str++;
+		i--;
 	}
-	return (len);
+	if (params->precision != UINT_MAX)
+		while (i++ < params->precision)
+			*--str = '0';
+	if (neg)
+		*--str = '-';
+	if (!params->minus_flag)
+		return (print_n_right_pad(str, params));
+	else
+		return (print_n_left_pad(str, params));
+}
+
+
+/**
+ * _isdigit - checks if the character is a digit or not
+ * @c: the char
+ *
+ * Return: 1 if true
+ */
+int _isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }

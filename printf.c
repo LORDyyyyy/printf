@@ -9,21 +9,40 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int printed_count = 0;
-	formats_t go_to_function[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_precen},
-		{"d", print_int},
-		{"i", print_int},
-		{NULL, NULL}
-	};
-
-	if (format == NULL || !format[0])
-		return (-1);
+	int printed_len = 0;
+	char *p, *start;
+	params_t params = {0};
 
 	va_start(ap, format);
-	printed_count = print_them(format, ap, go_to_function);
+
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+
+	for (p = (char *)format; *p; p++)
+	{
+		init_params(&params, ap);
+		if (*p != '%')
+		{
+			writechar(*p);
+			printed_len++;
+			continue;
+		}
+		start = p;
+		p++;
+
+		while (get_flag(p, &params))
+			p++;
+		if (get_modifier(p, &params))
+			p++;
+		if (get_scp(p))
+			printed_len += get_func(p, ap, &params);
+		else
+			printed_len += not_scp(start, p,
+					params.l_modifier || params.h_modifier ? p - 1 : 0);)
+	}
+	writechar(BUF_FLUSH);
 	va_end(ap);
-	return (printed_count);
+	return (printed_len);
 }
