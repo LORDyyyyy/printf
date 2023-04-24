@@ -96,8 +96,8 @@ int print_number(char *str, params_t *params);
 int print_char(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
-
-/* width and precision, wid_pre.c */
+int print_int (va_list ap, params_t *params);
+/* width.c and precision.c */
 char *get_precision(char *p, params_t *params, va_list ap);
 char *get_width(char *s, params_t *params, va_list ap);
 

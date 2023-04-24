@@ -13,6 +13,8 @@ int (*get_scp(char *s))(va_list ap, params_t *params)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"i", print_int},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 	int i;

@@ -78,3 +78,24 @@ int print_percent(va_list ap, params_t *params)
 	(void)params;
 	return (writechar('%'));
 }
+
+/**
+ * print_int - prints an integer
+ * @ap: passed argument
+ * @params: parameters
+ *
+ * Return: No. of digits printed
+ */
+int print_int(va_list ap, params_t *params)
+{
+	long n;
+
+	if (params->h_modifier)
+		n = (short int)va_arg(ap, int);
+	else if (params->l_modifier)
+		n = va_arg(ap, long);
+	else
+		n = (int)va_arg(ap, int);
+
+	return (print_number(convert(n, 10, 0), params));
+}

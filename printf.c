@@ -35,6 +35,8 @@ int _printf(const char *format, ...)
 
 		while (get_flag(p, &params))
 			p++;
+		p = get_width(p, &params, ap);
+		p = get_precision(p, &params, ap);
 		if (get_modifier(p, &params))
 			p++;
 		if (get_scp(p))
