@@ -81,7 +81,7 @@ int print_number(va_list ap, params_t *params);
 void init_params(params_t *params);
 
 /* a file contains all specifiers,flags, and modifiers scp.c */
-int (*get_scp(char *s))();
+int (*get_scp(char *s))(va_list ap, params_t *params);
 int get_func(char *s, va_list ap, params_t *params);
 int get_flag(char *s, params_t *params);
 int get_modifier(char *s, params_t *params);
