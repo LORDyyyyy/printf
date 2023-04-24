@@ -68,7 +68,7 @@ int _printf(const char *format, ...);
 
 /* the write function, writechar.c */
 int writechar(int);
-int wrtiestr(char);
+int writestr(char *);
 int _strlen(char *);
 
 /* print_1.c */
@@ -97,5 +97,12 @@ int print_char(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 
+/* width and precision, wid_pre.c */
+char *get_precision(char *p, params_t *params, va_list ap);
+char *get_width(char *s, params_t *params, va_list ap);
+
+/* left and right padding, padding.c */
+int print_n_right_pad(char *str, params_t *params);
+int print_n_left_pad(char *str, params_t *params);
 
 #endif
