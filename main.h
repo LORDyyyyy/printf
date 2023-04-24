@@ -68,7 +68,7 @@ int _printf(const char *format, ...);
 
 /* the write function, writechar.c */
 int writechar(int);
-int wrtiestr(char);
+int writestr(char *);
 int _strlen(char *);
 
 /* print_1.c */
@@ -92,7 +92,7 @@ char *convert(long int num, int base, int flags);
 int _isdigit(int c);
 int print_number(char *str, params_t *params);
 
-/* main functions, L, mainfunc.c */
+/* main functions, L, func_main.c */
 int print_char(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
