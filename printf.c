@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 
 	for (p = (char *)format; *p; p++)
 	{
-		init_params(&params, ap);
+		init_params(&params);
 		if (*p != '%')
 		{
 			writechar(*p);
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			printed_len += get_func(p, ap, &params);
 		else
 			printed_len += not_scp(start, p,
-					params.l_modifier || params.h_modifier ? p - 1 : 0);)
+					params.l_modifier || params.h_modifier ? p - 1 : 0);
 	}
 	writechar(BUF_FLUSH);
 	va_end(ap);

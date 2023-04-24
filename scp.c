@@ -12,6 +12,7 @@ int (*get_scp(char *s))(va_list ap, params_t *params)
 	formats_t goto_func[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"%", print_percent},
 		{NULL, NULL}
 	};
 	int i;

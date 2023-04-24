@@ -10,6 +10,9 @@
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
 
+#define CONVERT_LOWERCASE 1
+#define CONVERT_UNSIGNED 2
+
 /**
  * struct parameters - controls 'flags', 'width', 'length', and '.precision'
  * a boolian struct
@@ -74,9 +77,6 @@ int print_string(va_list ap, params_t *params);
 int print_precen(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
 
-/* numbers file, printnum.c*/
-int print_number(va_list ap, params_t *params);
-
 /* give the parameter struct members its initial value,init_params.c*/
 void init_params(params_t *params);
 
@@ -91,6 +91,11 @@ int not_scp(char *start, char *end, char *except);
 char *convert(long int num, int base, int flags);
 int _isdigit(int c);
 int print_number(char *str, params_t *params);
+
+/* main functions, L, mainfunc.c */
+int print_char(va_list ap, params_t *params);
+int print_string(va_list ap, params_t *params);
+int print_percent(va_list ap, params_t *params);
 
 
 #endif
