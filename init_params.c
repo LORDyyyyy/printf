@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * init_params - a function that give the 'parameters' struct
  * members its initial value

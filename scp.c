@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * get_scp - to selec the right specifier to print
  * @s: the string to check if its a specifier or not

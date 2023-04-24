@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * writechar - just like write, print a single character
  * @c: the character to be printed

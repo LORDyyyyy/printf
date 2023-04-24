@@ -49,7 +49,6 @@ typedef struct parameters
 } params_t;
 
 
-
 /**
  * struct formats_struct - a struct that holds the functions
  * @scp: specifiers, and there is a file for every sepcifier "scp.c"
