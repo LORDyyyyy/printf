@@ -114,6 +114,9 @@ int print_octal(va_list ap, params_t *params);
 int print_hex(va_list ap, params_t *params);
 int print_HEX(va_list ap, params_t *params);
 
+/* print S string, super_s.c*/
+int print_S(va_list ap, params_t *params);
+
 /* print the address, pointer.c */
 int print_address(va_list ap, params_t *params);
 
