@@ -3,7 +3,7 @@
 /**
  * get_width - get the width from string
  * @params: parameter
- * @ap: passed parameter
+ * @ap: argument parameter
  * @s: string
  *
  * Return: the pointer for get_width
