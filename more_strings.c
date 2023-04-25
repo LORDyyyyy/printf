@@ -19,7 +19,7 @@ int print_rev(va_list ap, params_t *params)
 	{
 		for (len = 0; *s; s++)
 			len += 1;
-		s -=1;
+		s -= 1;
 		for (; len > 0; len--, s--)
 			printed += writechar(*s);
 
@@ -45,18 +45,17 @@ int print_rot13(va_list ap, params_t *params)
 
 	if (s)
 	{
-		len = _strlen(s);
 		for (i = 0; s[i]; i++)
 		{
 			for (j = 0; j < 52; j++)
 				if (s[i] == ORIGINAL[j])
 			{
-					putchar(ROTATED[j]);
+					len += putchar(ROTATED[j]);
 					flag = 0;
 					break;
 			}
 			if (flag)
-				putchar(s[i]);
+				len += putchar(s[i]);
 			flag = 1;
 		}
 	}
