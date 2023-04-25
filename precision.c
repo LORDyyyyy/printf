@@ -3,7 +3,7 @@
 /**
  * get_precision - get precision
  * @params: paramete
- * @ap: passed pointers
+ * @ap: argument pointers
  * @ptr: pointer
  *
  * Return: mew pointer
