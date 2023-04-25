@@ -29,7 +29,7 @@ int print_rev(va_list ap, params_t *params)
 
 /**
  * print_rot13 - prints a string in rot13 rotation
- * @ap: passed argument
+ * @ap: argument pointer
  * @params: parameters
  *
  * Return: string length
