@@ -21,7 +21,7 @@ int print_binary(va_list ap, params_t *params)
 
 /**
  * print_unsigned - print unsigned
- * @ap: passed argument
+ * @a argument argument
  * @params: parameter
  *
  * Return: bytes print
