@@ -50,12 +50,12 @@ int print_rot13(va_list ap, params_t *params)
 			for (j = 0; j < 52; j++)
 				if (s[i] == ORIGINAL[j])
 			{
-					len += putchar(ROTATED[j]);
+					len += writechar(ROTATED[j]);
 					flag = 0;
 					break;
 			}
 			if (flag)
-				len += putchar(s[i]);
+				len += writechar(s[i]);
 			flag = 1;
 		}
 	}
