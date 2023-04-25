@@ -14,6 +14,7 @@ int print_S(va_list ap, params_t *params)
 {
 	char *s = va_arg(ap, char *), *hex;
 	int len = 0;
+	(void)params;
 
 	if (!s)
 		return (writestr("(null)"));
@@ -23,7 +24,7 @@ int print_S(va_list ap, params_t *params)
 	{
 		len += writechar('\\');
 		len += writechar('x');
-		hex = convert(*s, 16, params);
+		hex = convert(*s, 16, 0);
 		if (!hex[1])
 			len += writechar(48);
 		len += writestr(hex);
