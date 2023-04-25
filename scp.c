@@ -22,6 +22,7 @@ int (*get_scp(char *s))(va_list ap, params_t *params)
 		{"X", print_HEX},
 		{"S", print_S},
 		{"p", print_address},
+		{"r", print_rev},
 		{NULL, NULL}
 	};
 	int i;
