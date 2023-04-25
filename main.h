@@ -120,4 +120,7 @@ int print_S(va_list ap, params_t *params);
 /* print the address, pointer.c */
 int print_address(va_list ap, params_t *params);
 
+/* reversed_string + rot13, more_strings.c */
+int print_rev(va_list ap, params_t *params);
+int print_rot13(va_list ap, params_t *params);
 #endif
