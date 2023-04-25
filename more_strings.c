@@ -11,15 +11,15 @@
 
 int print_rev(va_list ap, params_t *params)
 {
-	int len, printed = 0;
+	int len = 0, printed = 0;
 	char *s = va_arg(ap, char *);
 	(void)params;
 
 	if (s)
 	{
-		len = _strlen(s);
-		for (; *s; s++)
-			s--;
+		for (len = 0; *s; s++)
+			len += 1;
+		s -=1;
 		for (; len > 0; len--, s--)
 			printed += writechar(*s);
 
