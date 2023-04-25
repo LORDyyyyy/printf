@@ -2,7 +2,7 @@
 
 /**
  * print_binary - print binary
- * @ap: passed argument
+ * @ap: argument argument
  * @params: parameter
  *
  * Return: bytes print
