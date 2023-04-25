@@ -107,7 +107,7 @@ int print_n_left_pad(char *str, params_t *params);
 
 /* bin_unsign.c */
 int print_binary(va_list ap, params_t *params);
-int print_unsigned(va_list ap, params_t *params)
+int print_unsigned(va_list ap, params_t *params);
 
 /* oct_hex.c */
 int print_octal(va_list ap, params_t *params);

@@ -9,7 +9,7 @@
  */
 int print_octal(va_list ap, params_t *params)
 {
-	unsigned long x_l;
+	unsigned long u_l;
 	char *s;
 	int x = 0;
 
@@ -18,7 +18,7 @@ int print_octal(va_list ap, params_t *params)
 	else if (params->h_modifier)
 		u_l = (unsigned short int)va_arg(ap, unsigned int);
 	else
-		u_l = (unsigned int)va_arg(ap, unsigned int);
+		u_l = (unsigned int)va_arg(ap, unsigned int);
 	s = convert(u_l, 8, CONVERT_UNSIGNED);
 
 	if (params->hashtag_flag && u_l)
@@ -41,13 +41,13 @@ int print_hex(va_list ap, params_t *params)
 	char *s;
 
 	if (params->l_modifier)
-		u_l = (unsigned long)va_arg(ap, unsigned long)
+		u_l = (unsigned long)va_arg(ap, unsigned long);
 	else if (params->h_modifier)
 		u_l = (unsigned short int)va_arg(ap, unsigned int);
 	else
 		u_l = (unsigned int)va_arg(ap, unsigned int);
 
-	s = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE);
+	s = convert(u_l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE);
 	if (params->hashtag_flag && u_l)
 	{
 		*--s = 'x';
