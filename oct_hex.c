@@ -2,7 +2,7 @@
 
 /**
  * print_octal - print print octal
- * @ap: passed argument
+ * @ap: argument pointer
  * @params: parameter
  *
  * Return: bytes print
