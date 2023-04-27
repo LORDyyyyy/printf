@@ -3,7 +3,7 @@
 
 /**
  * _printf - just like printf my friend
- * @format: the string with contains everything
+ * @format: the string which contains everything
  *
  * Return: the length of format
  */

@@ -71,12 +71,6 @@ int writechar(int);
 int writestr(char *);
 int _strlen(char *);
 
-/* print_1.c */
-int print_char(va_list ap, params_t *params);
-int print_string(va_list ap, params_t *params);
-int print_precen(va_list ap, params_t *params);
-int print_int(va_list ap, params_t *params);
-
 /* give the parameter struct members its initial value,init_params.c*/
 void init_params(params_t *params);
 
